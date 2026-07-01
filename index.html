@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Lista de Tareas con Metas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✅ Mi Lista de Tareas</h1>
+            <p>Organiza tus metas y cumple tus objetivos</p>
+        </header>
+
+        <main>
+            <!-- SECCIÓN DEL FORMULARIO -->
+            <section class="form-section">
+                <h2>Agregar Nueva Tarea</h2>
+                <form id="taskForm" novalidate>
+                    <div class="form-group">
+                        <label for="title">Título *</label>
+                        <input type="text" id="title" name="title" placeholder="Ej: Terminar proyecto" required>
+                        <span class="error-message" id="titleError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Descripción</label>
+                        <textarea id="description" name="description" rows="3" placeholder="Describe tu tarea..."></textarea>
+                        <span class="error-message" id="descriptionError"></span>
+                        <small id="charCount">0 / 200 caracteres</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Categoría *</label>
+                        <select id="category" name="category" required>
+                            <option value="">Selecciona una categoría</option>
+                            <option value="personal">Personal</option>
+                            <option value="trabajo">Trabajo</option>
+                            <option value="estudios">Estudios</option>
+                            <option value="hogar">Hogar</option>
+                            <option value="salud">Salud</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                        <span class="error-message" id="categoryError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deadline">Fecha Límite *</label>
+                        <input type="date" id="deadline" name="deadline" required>
+                        <span class="error-message" id="deadlineError"></span>
+                    </div>
+
+                    <button type="submit" id="addTaskBtn">➕ Agregar Tarea</button>
+                </form>
+            </section>
+
+            <!-- SECCIÓN DE FILTROS Y LISTA -->
+            <section class="list-section">
+                <div class="filters">
+                    <h2>Mis Tareas</h2>
+                    <div class="filter-controls">
+                        <label for="filterCategory">Filtrar por:</label>
+                        <select id="filterCategory">
+                            <option value="todas">Todas</option>
+                            <option value="personal">Personal</option>
+                            <option value="trabajo">Trabajo</option>
+                            <option value="estudios">Estudios</option>
+                            <option value="hogar">Hogar</option>
+                            <option value="salud">Salud</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="taskList">
+                    <!-- Las tareas se generarán dinámicamente aquí -->
+                    <p class="empty-message">No hay tareas aún. ¡Agrega una!</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>📌 Tus tareas se guardan automáticamente en tu navegador</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
